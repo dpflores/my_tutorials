@@ -31,4 +31,4 @@ docker run --name matlab_container -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tm
 
 Bueno eso es básicamente todo lo que necesitan para correr MATLAB con docker y que puedan compartir archivos fácilmente con su computadora local, al menos de forma básica. Si le han dado a ejecutar verán que les pide pues sus credenciales y una vez eso saldrá MATLAB como si estuviese corriendo en su computadora.
 
-<img src="figures/matlab1.png" alt="matlab_container" style="width:80%">
+<img src="figures/matlab1.png" alt="matlab_container" style="width:100%">
