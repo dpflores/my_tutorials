@@ -1,0 +1,4 @@
+docker run --name matlab_container -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro -v ~/Del/docker/Matlab:/home/matlab/Documents/MATLAB/Del --shm-size=512M mathworks/matlab:r2022a
+
+docker exec -it matlab_container bash
+
