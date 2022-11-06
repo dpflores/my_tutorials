@@ -9,11 +9,14 @@ Bueno, si bien no hay un tutorial de docker aún, es porque siento que voy a uti
 Primero es necesario saber que necesitamos docker instalado, pueden hacerlo en la misma página de docker. Luego, corremos 
 
 ``` 
+xhost +
 docker run --name matlab_container -it -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix:ro -v ~/Del/docker/Matlab:/home/matlab/Documents/MATLAB/Del --shm-size=512M mathworks/matlab:r2022a
 ```
  Y acá diré, que rayos es todo esto, así que trataré de explicar masomenos lo que entiendo de todo ello.
 
  Primero que nada, estamos creando un contenedor con la imagen de matlab 2022a que sea capaz de mostrar la interfaz y todo como si tuviesemos matlab instalado en nuestra computadora. Recuerden que las siguientes caracterísitcas la pueden investigar más a fondo en el sitio oficial de Docker.
+ 
+`xhost +` es importante para permitir a cualquier usuario abrir ventanas en el ordenador.
 
 `--name matlab_container` es el nombre que le asignamos a nuestro contenedor.
 
@@ -38,6 +41,7 @@ Si observan el lado izquierdo, está la carpeta `Del` que les mencioné en la cr
 Ahora si cierran la ventana y el contenedor se detiene, para poder abrir de nuevo el mismo contenedor con sus archivos y copnfiguración, ejecutamos
 
 ``` 
+xhost +
 docker start -i matlab_container
 ```
 
@@ -78,7 +82,7 @@ Con esto verás que el toolbox se ha instalado correctamente en tu container y t
 Ahora, solo por si no deseas correr el `docker start` cada vez que quieras usar matlab, pues recomiendo que edites el .bashrc, te vayas al final, y agregues
 
 ```
-alias matlab="docker start -i matlab_container"
+alias matlab="xhost +; docker start -i matlab_container"
 ```
 
 Con esto, solo tienes que tipear `matlab` en tu terminal y funcionará de la misma forma. Recuerda que si quieres instlar un toolbox, pues tienes que seguir el proceso con el `docker exec`, pero por mi parte eso sería todo.
@@ -87,6 +91,6 @@ Con esto, solo tienes que tipear `matlab` en tu terminal y funcionará de la mis
 ## Referencias
 Algunos links que les sean de utilidad
 
-[MATLAB en dockerhub](https://hub.docker.com/r/mathworks/matlab)
+[MATLAB en docker hub](https://hub.docker.com/r/mathworks/matlab)
 
 [MAthworks: Matlab in containers](https://www.mathworks.com/help/cloudcenter/ug/matlab-container-on-docker-hub.html)
