@@ -1,6 +1,6 @@
 # My tutorials
 
-Este es un repositorio con la única finalidad de guardar los pasos que voy siguiendo al aprender algo nuevo o utilizar algo que probablemente me olvide. Espero que si estás acá, alguna vez te ssean de utilidad. 
+Este es un repositorio con la única finalidad de guardar los pasos que voy siguiendo al aprender algo nuevo o utilizar algo que probablemente me olvide. Espero que si estás acá, alguna vez te sean de utilidad. 
 
 ## Matlab con docker 
 
