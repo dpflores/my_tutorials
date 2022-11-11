@@ -53,10 +53,11 @@ docker exec -it matlab_container bash
 ```
 Luego, en mi caso le tengo que dar permiso al foder `Del`, para ello utilizo
 ```
-chmod g+w Del/
+sudo chmod -R 777 Del/
 ```
 Con ello podremos alojar archivos sin problemas en el volumen al usar el contenedor de Matlab.
 
+Update: A pesar de ello sigo teniendo problemas con ello, así que cuando creen el archivo ya sea simulink u otro, recomiendo abrir con el filemanager haciendo anticlick en la parte izquierda donde se ven los folderes.
 ## Instalación de los toolbox
 
 Ahora, MATLAB no es nada sin los toolbox que tiene para instalar. En la interfaz que tenemos podemos acceder a Add-Ons de forma muy facil haciendo click y se abrirá la ventana mostrándonos todos los toolboxes disponibles. SIn embargo, siempre que quedramos instalar uno, Matlab necesariamente tiene que cerrarse. Al cerrarse, el contenedor se detiene y nunca se inicializa la ventana de instalación del toolbox, por lo que simplemente si seguimos así, nunca podremos instalar alguno. Ahora, de seguro por ahí hay una solución efectiva (la verdad no investigué mucho); sin embargo, esta es la que yo ideé para solucionar este problema. 
