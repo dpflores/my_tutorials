@@ -47,6 +47,15 @@ docker start -i matlab_container
 
 Entonces cada vez que lo cierren, solo ejecutan eso y pues siempre será el mismo contenedor.
 
+Para poder utilizar el volumen y guardar sin problemas los archivos en este mientras usamos matlab, damos permisos sobre esta carpeta. Para ello, ejecutamos un bash en otra terminal
+```
+docker exec -it matlab_container bash
+```
+Luego, en mi caso le tengo que dar permiso al foder `Del`, para ello utilizo
+```
+chmod g+w Del/
+```
+Con ello podremos alojar archivos sin problemas en el volumen al usar el contenedor de Matlab.
 
 ## Instalación de los toolbox
 
